@@ -36,7 +36,9 @@
 }
 
 .front{
-    background-color: red;
+    background-image: url('/images/foto2.png');
+    background-size: cover;
+    background-position: center;
     transform: rotateY(180deg);
 }
 
@@ -45,6 +47,6 @@
     backface-visibility: hidden;
 }
 
-.card:hover{
+.reveal-card{
     transform: rotateY(180deg);
 }
