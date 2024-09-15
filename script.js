@@ -1,4 +1,6 @@
 const grid = document.querySelector('.grid')
+const timer = document.querySelector('.timer')
+const spanPlayer = document.querySelector('.player')
 
 const item = [
     'foto1',
@@ -22,8 +24,41 @@ const createElement = (tag, className) => {
 let firstCard = ''
 let secondCard = ''
 
+const checkEngGame = () => {
+    const disabledCards = document.querySelectorAll('.disable-card')
+
+    if (disabledCards.length === 20) {
+        clearInterval(this.loop)
+        alert(`Parabéns, você terminou em ${timer.innerHTML} segundos.`)
+    }
+}
+
 const checkCards = () => {
-    
+    const firstItem = firstCard.getAttribute('data-item')
+    const secondItem = secondCard.getAttribute('data-item')
+
+    if (firstItem === secondItem) {
+
+        firstCard.firstChild.classList.add('disable-card')
+        secondCard.firstChild.classList.add('disable-card')
+
+        firstCard = ''
+        secondCard = ''
+
+        checkEngGame()
+
+    } else {
+
+        setTimeout(() => {
+
+        firstCard.classList.remove('reveal-card')
+        secondCard.classList.remove('reveal-card')
+
+        firstCard = ''
+        secondCard = ''
+
+        }, 500)
+    }
 }
 
 const revealCard = ({target}) => {
@@ -57,6 +92,8 @@ const createCard = (item) => {
 
     card.addEventListener('click', revealCard)
 
+    card.setAttribute('data-item', item)
+
     return card
 }
 
@@ -74,4 +111,22 @@ const loadGame = () => {
     })
 }
 
-loadGame()
+const startTimer = () => {
+
+    this.loop = setInterval(() => {
+        const currentTime = +timer.innerHTML
+        timer.innerHTML = currentTime + 1
+    }, 1000)
+
+}
+
+window.onload = () => {
+
+    const playerName = localStorage.getItem('player')
+
+    spanPlayer.innerHTML = playerName
+
+    startTimer()
+    loadGame()
+}
+

@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
 
-    <script defer src="script.js"></script>
+    <script defer src="login.js"></script>
+
+    <title>Login</title>
 </head>
 <body>
-    <h1>Jogo da Memória</h1>
 
-    <div class="grid"></div>
+    <form class="login-form">
 
+        <div class="login-header">
+            <div class="rules">
+                <h1>Regras</h1>
+                <h2>1 - Você tem 1 minuto para terminar o desafio</h2>
+                <h2>2 - Assim que apertar o botão, o tempo vai começar a contar </h2>
+                <h2>3 - Só vai ganhar presente se fizer em menos de 1 minuto</h2>
+                <h1>Boa Sorte!</h1>
+            </div>
+            <h1>Jogo da Memória de Casal =) </h1>
+        </div>
+
+        <input type="text" placeholder="Nome" class="login-input">
+        <button type="submit" class="login-button" disabled>Start</button>
+
+    </form>
+    
 </body>
 </html>
