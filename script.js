@@ -127,6 +127,6 @@ window.onload = () => {
     spanPlayer.innerHTML = playerName
 
     startTimer()
-    loadGame()
 }
 
+loadGame()
